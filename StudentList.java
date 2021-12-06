@@ -71,14 +71,8 @@ public class StudentList {
 		} else if (args[0].contains("c")) {
 			System.out.println(constant.loadingText);
 			
-			char students[] =  readFile().toCharArray();
-			int count = 1;
-				for (char singleCh : students) {
-					if (singleCh == ' ') {
-						count++;
-					}
-				}
-				System.out.println(count + " word(s) found ");
+			String students[] =  readFile().split(",");
+			System.out.println(students.length + " word(s) found ");
 			System.out.println(constant.loadedText);
 		}
 	}

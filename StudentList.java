@@ -29,6 +29,7 @@ public class StudentList {
 		Constants constant = new Constants();
 
 		if (!args[0].equals("a") && !args[0].equals("r") &&  !args[0].contains("+") && !args[0].contains("?") && !args[0].contains("c")){
+			System.out.println("You entered Wrong Arguments.Run again..\n");
 			System.exit(0);
 		}
 

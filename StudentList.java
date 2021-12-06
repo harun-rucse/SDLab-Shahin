@@ -35,33 +35,30 @@ public class StudentList {
 		// Check arguments
 		if (args[0].equals("a")) {
 			System.out.println(constant.loadingText);
-			String textFile = readFile();
-			String students[] = textFile.split(",");
+			String students[] = readFile().split(",");
 			for (String singleStudent : students) {
 				System.out.println(singleStudent);
 			}
 			System.out.println(constant.loadedText);
 		} else if (args[0].equals("r")) {
 			System.out.println(constant.loadingText);
-			String textFile = readFile();
-			String students[] = textFile.split(",");
-			Random rand = new Random();
-			int randomNumber = rand.nextInt(students.length);
+			String students[] = readFile().split(",");
+			int randomNumber = new Random().nextInt(students.length);
 			System.out.println(students[randomNumber]);
 			System.out.println(constant.loadedText);
 		} else if (args[0].contains("+")) {
 			System.out.println(constant.loadingText);
 			String inputText = args[0].substring(1);
-			Date date = new Date();
-			String df = "dd/mm/yyyy-hh:mm:ss a";
-			DateFormat dateFormat = new SimpleDateFormat(df);
-			String formatDate = dateFormat.format(date);
+	
+			
+			//DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy-hh:mm:ss a");
+			String formatDate = new SimpleDateFormat("dd/mm/yyyy-hh:mm:ss a").format(new Date());
 			writeFile(inputText, formatDate);
 			System.out.println(constant.loadedText);
 		} else if (args[0].contains("?")) {
 			System.out.println(constant.loadingText);
-			String textFile = readFile();
-			String students[] = textFile.split(",");
+			
+			String students[] = readFile().split(",");
 			boolean done = false;
 			String searchText = args[0].substring(1);
 				for (int idx = 0; idx < students.length && !done; idx++) {
@@ -73,8 +70,8 @@ public class StudentList {
 			System.out.println(constant.loadedText);
 		} else if (args[0].contains("c")) {
 			System.out.println(constant.loadingText);
-			String textFile = readFile();
-			char students[] = textFile.toCharArray();
+			
+			char students[] =  readFile().toCharArray();
 			int count = 1;
 				for (char singleCh : students) {
 					if (singleCh == ' ') {
